@@ -21,7 +21,7 @@ public class Main {
             DecimalFormat formatDivisa = new DecimalFormat("#.##");
             boolean continuarPrograma = true;
             while (continuarPrograma) {
-                String[] opciones = {"AR$->U$D", "AR$->EUR", "AR$->GBP(libras esterlinas)", "AR$->YEN",};
+                String[] opciones = {"AR$->U$D", "AR$->EUR", "AR$->GBP(libras esterlinas)", "AR$->YEN","AR$->WON"};
                 String cambio = (String) JOptionPane.showInputDialog(null, "Elige una opcion",
                         "Conversor de monedas", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
                 String input = JOptionPane.showInputDialog(null, "Ingrese cantidad de pesos");
@@ -33,26 +33,32 @@ public class Main {
                 }
 
                 if (cambio.equals("AR$->U$D")) {
-                    double dolares = pesos * 0.350;
+                    double dolares = 350;
+                    dolares = pesos/dolares;
                     JOptionPane.showMessageDialog(null,
                             pesos + "Pesos argentinos son: " + formatDivisa.format(dolares) + " Dolares.");
                 } else if (cambio.equals("AR$->EUR")) {
-                    double euro = pesos * 0.215;
+                    double euro = 215;
+                    euro = pesos/euro;
                     JOptionPane.showMessageDialog(null,
                             pesos + "Pesos argentinos son: " + formatDivisa.format(euro) + " Euros");
                 } else if (cambio.equals("AR$->GBP(libras esterlinas)")) {
-                    double libra = pesos * 0.244;
+                    double libra = 244;
+                    libra =  pesos/libra;
                     JOptionPane.showMessageDialog(null,
                             pesos + "Pesos argentinos son: " + formatDivisa.format(libra) + " Libras esterlinas");
                 } else if (cambio.equals("AR$->YEN")) {
-                    double yen = pesos * 0.150;
+                    double yen = 150;
+                    yen = pesos/yen;
                     JOptionPane.showMessageDialog(null,
                             pesos + "Pesos argentinos son: " + formatDivisa.format(yen) + " Yenes chinos");
-                    int confirma = JOptionPane.showConfirmDialog(null, "¿Desea continuar con el programa?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
-                    if (confirma == JOptionPane.NO_OPTION || confirma == JOptionPane.CANCEL_OPTION) {
-                        continuarPrograma = false;
-                        JOptionPane.showMessageDialog(null, "Programa finalizado");
-                    }
+
+
+                }
+                int confirma = JOptionPane.showConfirmDialog(null, "¿Desea continuar con el programa?", "Confirmar", JOptionPane.YES_NO_CANCEL_OPTION);
+                if (confirma == JOptionPane.NO_OPTION || confirma == JOptionPane.CANCEL_OPTION) {
+                    continuarPrograma = false;
+                    JOptionPane.showMessageDialog(null, "Programa finalizado");
                 }
             }
         }
